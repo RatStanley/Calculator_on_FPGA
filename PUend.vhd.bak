@@ -1,0 +1,11 @@
+entity PUend is
+	port(Divider, RestIn, Equal : in bit;
+			EqualOut : out bit);
+end PUend;
+
+architecture PUend_ar of PUend is 
+
+	begin	
+		EqualOut <= not((Equal nand RestIn) and (Equal nand not(Divider)) and (not(Divider) nand RestIn));
+end PUend_ar;
+

@@ -1,0 +1,21 @@
+entity PU is
+	port(Divider, Cin, Equal, VarOut : in bit;
+			EqualOut, Rest : out bit);
+end PU;
+
+architecture PU_ar of PU is 
+	component sum1 
+	port(A, B, Cin : in bit;
+			S, Cout  : out bit);
+	end component;
+	signal SumOut : bit;
+	begin	
+		port map(
+		A => not Divider;
+		B => Cin;
+		Cin => Equal;
+		EqualOut => SumOut;
+		Cout => Rest;
+		);
+		Rest <= (VarOut and SumOut) or (not VarOut and Cin);
+end PU_ar;

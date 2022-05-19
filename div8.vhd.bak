@@ -1,0 +1,8 @@
+entity div8 is
+	port(ValIn : in bit_vector;
+			ValOut : out bit_vector);
+end entity;
+
+architecture div8_ar of div8 is
+	
+end architecture;
